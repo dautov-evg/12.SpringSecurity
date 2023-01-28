@@ -13,7 +13,7 @@ import ru.dautov.springcourse.FirstSecurityApp.services.PersonDetailsService;
 import java.util.Collections;
 
 @Component
-public class AuthProviderImpl implements AuthenticationProvider {
+public class AuthProviderImpl implements AuthenticationProvider { // содержит логику аутентификации
 
     private final PersonDetailsService personDetailsService;
 
@@ -27,10 +27,12 @@ public class AuthProviderImpl implements AuthenticationProvider {
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
 
+//        получаем personDetails из БД с помощью personDetailsService
         UserDetails personDetails = personDetailsService.loadUserByUsername(username);
 
         String password = authentication.getCredentials().toString();
 
+//        сравниваем пароли
         if (!password.equals(personDetails.getPassword())) {
             throw new BadCredentialsException("Incorrect password");
         }

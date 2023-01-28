@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import ru.dautov.springcourse.FirstSecurityApp.security.AuthProviderImpl;
 
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {   // здесь вся конфигурация Spring Security
 
     private final AuthProviderImpl authProvider;
 

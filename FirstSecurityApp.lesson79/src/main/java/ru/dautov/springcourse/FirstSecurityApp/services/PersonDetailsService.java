@@ -12,7 +12,7 @@ import ru.dautov.springcourse.FirstSecurityApp.security.PersonDetails;
 import java.util.Optional;
 
 @Service
-public class PersonDetailsService implements UserDetailsService {
+public class PersonDetailsService implements UserDetailsService { // для работы с БД
     private final PeopleRepositiry peopleRepositiry;
 
     @Autowired
