@@ -1,4 +1,4 @@
-package ru.dautov.springcourse.FirstSecurityApp.security.controllers;
+package ru.dautov.springcourse.FirstSecurityApp.controllers;
 
 
 import org.springframework.security.core.Authentication;
