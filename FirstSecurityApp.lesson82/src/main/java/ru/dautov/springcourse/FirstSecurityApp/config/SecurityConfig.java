@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {   // здес
         http.csrf().disable() //отключили токе csrf(временно). Чтобы работало
                 // конфигурируем авторизацию
                 .authorizeRequests()
-                .antMatchers("/auth/login", "/error").permitAll()  //настраиваем чтобы на эти страницы могли войти даже неаутентифицированные пользователи
+                .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()  //настраиваем чтобы на эти страницы могли войти даже неаутентифицированные пользователи
                 .anyRequest().authenticated()  //все остальные страницы доступны только через авторизацию
                 .and()
 //                конфигурируем страничку логина
