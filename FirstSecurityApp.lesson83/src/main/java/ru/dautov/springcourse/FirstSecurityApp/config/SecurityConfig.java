@@ -35,7 +35,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {   // здес
                 .formLogin().loginPage("/auth/login")
                 .loginProcessingUrl("/process_login") //куда отправлять данные с формы (Spring проверет сам)
                 .defaultSuccessUrl("/hello", true) //куда направлять, в случае валидных данных
-                .failureUrl("/auth/login?error");    //Куда направлять в случае невалидных данных
+                .failureUrl("/auth/login?error") //Куда направлять в случае невалидных данных
+                .and() //разлогирование
+                .logout().logoutUrl("/logout").logoutSuccessUrl("/auth/login"); // при переходе на /logout, произойдет разлогирование.
+                                                        // Удялится сессия и кукис. Автоматически осуществится переход на страницу /login
     }
 
 
