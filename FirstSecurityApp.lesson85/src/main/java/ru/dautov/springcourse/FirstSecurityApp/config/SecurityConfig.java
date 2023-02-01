@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {   // здес
     protected void configure(HttpSecurity http) throws Exception {
         // конфигурируем сам Spring Security (вход, ошибки и т д)
 
-        http.csrf().disable() //отключили токе csrf(временно). Чтобы работало
+        http         //.csrf().disable() //отключили токе csrf(временно). Чтобы работало // по умолчанию защита включена
                 // конфигурируем авторизацию
                 .authorizeRequests()
                 .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()  //настраиваем чтобы на эти страницы могли войти даже неаутентифицированные пользователи
