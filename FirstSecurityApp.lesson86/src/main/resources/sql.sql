@@ -4,7 +4,8 @@ CREATE TABLE Person(
                        year_of_birth int NOT NULL,
                        password varchar NOT NULL
 );
+TRUNCATE TABLE Person;
 
-INSERT INTO Person (username, year_of_birth, "password") VALUES ('test_user1', 1960, 'test_password');
+ALTER TABLE Person ADD COLUMN role varchar(100) NOT NULL;
 
-INSERT INTO Person (username, year_of_birth, "password") VALUES ('test_user2', 1995, 'test_password');
+UPDATE Person set role='ROLE_ADMIN' WHERE id=7;

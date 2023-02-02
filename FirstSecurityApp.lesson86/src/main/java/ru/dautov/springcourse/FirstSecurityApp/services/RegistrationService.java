@@ -22,7 +22,7 @@ public class RegistrationService {
     public void register(Person person) {
 //        получаем пароль, шифруем его и записываем в БД
         person.setPassword(passwordEncoder.encode(person.getPassword()));
-
+        person.setRole("ROLE_USER");
         peopleRepositiry.save(person);
     }
 }

@@ -25,12 +25,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {   // здес
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // конфигурируем сам Spring Security (вход, ошибки и т д)
+        // конфигурируем авторизацию
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/auth/login", "/auth/registration", "/error").permitAll() //настраиваем чтобы на эти страницы могли войти даже неаутентифицированные пользователи
+                .anyRequest().hasAnyRole("USER", "ADMIN")
 
-        http         //.csrf().disable() //отключили токе csrf(временно). Чтобы работало // по умолчанию защита включена
-                // конфигурируем авторизацию
-                .authorizeRequests()
-                .antMatchers("/auth/login", "/auth/registration", "/error").permitAll()  //настраиваем чтобы на эти страницы могли войти даже неаутентифицированные пользователи
-                .anyRequest().authenticated()  //все остальные страницы доступны только через авторизацию
                 .and()
 //                конфигурируем страничку логина
                 .formLogin().loginPage("/auth/login")
